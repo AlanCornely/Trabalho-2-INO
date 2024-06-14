@@ -4,12 +4,15 @@
 //DISC.: Analizar Orient. T�cnicas
 //ALUNO: Alan M. Cornely
 
+
+//variaveis globais
 int soma = 13;
 int carryBit = 0;
 int nib1a,nib1b,nib1c,nib1d = 0;
 int nib2a,nib2b,nib2c,nib2d = 0;
 int res1a,res1b,res1c,res1d = 0;
 
+//Configuração de pinos
 void setup(){
 	pinMode(0, INPUT);
 	pinMode(1, INPUT);
@@ -27,6 +30,7 @@ void setup(){
 	pinMode(13, INPUT);
 }
 
+// Realiza a operação de soma bit a bit entre as variaveis b1a e b2a, considerando também o bit de transporte cBit.
 int somaBit(int b1a, int b2a, int cBit){
 	int bitResult = 0;
 	int aux1, aux2 = 0;
@@ -38,6 +42,7 @@ int somaBit(int b1a, int b2a, int cBit){
 	return bitResult;
 }
 
+//Calcula o novo valor do bit de transporte (cBit) após a soma dos bits b1a e b2a.
 int somaCarryBit(int b1a, int b2a, int cBit){
 	int aux1, aux2 = 0;
 	if ((b1a && b2a)||(b1a && cBit)||(b2a && cBit)){

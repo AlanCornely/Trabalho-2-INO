@@ -1,10 +1,10 @@
 # Trabalho-2-INO
-# =============================================
+# =====================================
 # Documentação do Código Arduino
 ## versão: 1.0
 ## de: Alan M. Cornely
 ## Data: 13/06/2024
-# =============================================
+# =====================================
 
 ## Descrição
 ### Este código Arduino realiza a soma de dois números de 4 bits e exibe o resultado em pinos de saída digitais. O programa lê dois números de 4 bits a partir dos pinos de entrada digitais, realiza a soma bit a bit considerando o bit de transporte (carry bit) e, em seguida, escreve o resultado e o bit de transporte resultante nos pinos de saída.

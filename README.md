@@ -93,6 +93,7 @@ int somaCarryBit(int b1a, int b2a, int cBit){
 }
 ```
 **Parâmetros:**
+
 --int b1a - Primeiro bit de entrada.
 
 --int b2a - Segundo bit de entrada.

@@ -1,150 +1,147 @@
-# Trabalho-2-INO
+# ARDU.INO CODE
 # =====================================
-# Documentação do Código Arduino
-## versão: 1.0
-## de: Alan M. Cornely
-## Data: 13/06/2024
+# ARDU.INO CODE documentation
+## version: 1.0
+## by: Alan M. Cornely
+## Date: 06/13/2024
 # =====================================
 
-## Descrição
-### Este código Arduino realiza a soma de dois números de 4 bits e exibe o resultado em pinos de saída digitais. O programa lê dois números de 4 bits a partir dos pinos de entrada digitais, realiza a soma bit a bit considerando o bit de transporte (carry bit) e, em seguida, escreve o resultado e o bit de transporte resultante nos pinos de saída.
+## Description
+### This Arduino code performs the sum of two 4-bit numbers and displays the result on digital output pins. The program reads two 4-bit numbers from the digital input pins, performs the bitwise sum considering the carry bit, and then writes the result and the resulting carry bit to the output pins.
 
-### Variáveis Globais:
--- **int soma = 13;** 
+### Global Variables:
+-- **int sum = 13;**
 
-É o Pino de entrada utilizado para ativar a operação de soma.
+It is the Input Pin used to activate the sum operation.
 
 -- **int carryBit = 0;**
 
-É o Bit de transporte inicializado como 0.
+It is the Transport Bit initialized to 0.
 
 -- **int nib1a, nib1b, nib1c, nib1d = 0;**
 
-É os Bits do primeiro número de 4 bits..
+It is the Bits of the first 4-bit number..
 
 -- **int nib2a, nib2b, nib2c, nib2d = 0;**
 
-É os Bits do segundo número de 4 bits..
+It is the Bits of the second 4-bit number..
 
 -- **int res1a, res1b, res1c, res1d = 0;**
 
-É o Bit do resultado da soma.
+It is the Bit of the sum result.
 
-### Função setup()
-Configura os pinos digitais como entrada ou saída. Sedo respectivamente input a entrada e output a saida.
+### setup() function
+Configures the digital pins as input or output. Input is the input and output is the output respectively.
 ```cpp
 void setup(){
-    pinMode(0, INPUT);
-    pinMode(1, INPUT);
-    pinMode(2, INPUT);
-    pinMode(3, INPUT);
-    pinMode(4, INPUT);
-    pinMode(5, INPUT);
-    pinMode(6, INPUT);
-    pinMode(7, INPUT);
-    pinMode(8, OUTPUT);
-    pinMode(9, OUTPUT);
-    pinMode(10, OUTPUT);
-    pinMode(11, OUTPUT);
-    pinMode(12, OUTPUT);
-    pinMode(13, INPUT);
+ pinMode(0, INPUT);
+ pinMode(1, INPUT);
+ pinMode(2, INPUT);
+ pinMode(3, INPUT);
+ pinMode(4, INPUT);
+ pinMode(5, INPUT);
+ pinMode(6, INPUT);
+ pinMode(7, INPUT);
+ pinMode(8, OUTPUT);
+ pinMode(9, OUTPUT);
+ pinMode(10, OUTPUT);
+ pinMode(11, OUTPUT);
+ pinMode(12, OUTPUT);
+ pinMode(13, INPUT);
 }
 ```
-### Função 'somaBit'
-Realiza a soma de três bits, retornando o bit de resultado.
+### Function 'sumBit'
+Performs the sum of three bits, returning the result bit.
 
 ```cpp
-Copiar código
-int somaBit(int b1a, int b2a, int cBit){
-    int bitResult = 0;
-    if ((b1a ^ b2a) ^ cBit){
-        bitResult = 1;
-    } else {
-        bitResult = 0;
-    }
-    return bitResult;
+int sumBit(int b1a, int b2a, int cBit){
+ int bitResult = 0;
+ if ((b1a ^ b2a) ^ cBit){
+ bitResult = 1;
+ } else {
+ bitResult = 0;
+ }
+ return bitResult;
 }
 ```
-**Parâmetros:**
+**Parameters:**
 
---int b1a - Primeiro bit de entrada.
+--int b1a - First input bit.
 
---int b2a - Segundo bit de entrada.
+--int b2a - Second input bit.
 
---int cBit - Bit de transporte (carry bit).
+--int cBit - Carry bit.
 
-**Retorno:**
+**Return:**
 
---int - Bit de resultado da soma.
+--int - Sum result bit.
 
-### Função 'somaCarryBit'
+### Function 'sumCarryBit'
 
-Calcula o novo bit de transporte após a soma de três bits.
+Calculates the new carry bit after summing three bits.
 
 ```cpp
-Copiar código
-int somaCarryBit(int b1a, int b2a, int cBit){
-    if ((b1a && b2a) || (b1a && cBit) || (b2a && cBit)){
-        cBit = 1;
-    } else {
-        cBit = 0;
-    }
-    return cBit;
+int sumCarryBit(int b1a, int b2a, int cBit){
+ if ((b1a && b2a) || (b1a && cBit) || (b2a && cBit)){
+ cBit = 1;
+ } else {
+ cBit = 0;
+ }
+ return cBit;
 }
 ```
-**Parâmetros:**
+**Parameters:**
 
---int b1a - Primeiro bit de entrada.
+--int b1a - First input bit.
 
---int b2a - Segundo bit de entrada.
+--int b2a - Second input bit.
 
---int cBit - Bit de transporte (carry bit).
+--int cBit - Carry bit.
 
-**Retorno:**
+**Return:**
 
---int - Novo bit de transporte.
+--int - New carry bit.
 
-###Função loop()
+###Loop() function
 
-Lê os bits de entrada, realiza a soma se o pino de controle estiver ativado e escreve o resultado nos pinos de saída.
+Reads the input bits, performs the sum if the control pin is activated and writes the result to the output pins.
 
 ```cpp
-Copiar código
 void loop(){
-    soma = digitalRead(13);
-    nib1a = digitalRead(0);
-    nib1b = digitalRead(1);
-    nib1c = digitalRead(2);
-    nib1d = digitalRead(3);
-    nib2a = digitalRead(4);
-    nib2b = digitalRead(5);
-    nib2c = digitalRead(6);
-    nib2d = digitalRead(7);
+ sum = digitalRead(13);
+ nib1a = digitalRead(0);
+ nib1b = digitalRead(1);
+ nib1c = digitalRead(2);
+ nib1d = digitalRead(3);
+ nib2a = digitalRead(4);
+ nib2b = digitalRead(5);
+ nib2c = digitalRead(6);
+ nib2d = digitalRead(7);
 
-    if (soma == 1){
-        carryBit = 0;
-        res1a = somaBit(nib1a, nib2a, carryBit);
-        carryBit = somaCarryBit(nib1a, nib2a, carryBit);
-        res1b = somaBit(nib1b, nib2b, carryBit);
-        carryBit = somaCarryBit(nib1b, nib2b, carryBit);
-        res1c = somaBit(nib1c, nib2c, carryBit);
-        carryBit = somaCarryBit(nib1c, nib2c, carryBit);
-        res1d = somaBit(nib1d, nib2d, carryBit);
-        carryBit = somaCarryBit(nib1d, nib2d, carryBit);
-    }
-    digitalWrite(8, res1a);
-    digitalWrite(9, res1b);
-    digitalWrite(10, res1c);
-    digitalWrite(11, res1d);
-    digitalWrite(12, carryBit);
+ if (sum == 1){
+ carryBit = 0;
+ res1a = sumBit(nib1a, nib2a, carryBit);
+ carryBit = sumCarryBit(nib1a, nib2a, carryBit);
+ res1b = sumBit(nib1b, nib2b, carryBit);
+ carryBit = sumCarryBit(nib1b, nib2b, carryBit);
+ res1c = sumBit(nib1c, nib2c, carryBit);
+ carryBit = sumCarryBit(nib1c, nib2c, carryBit);
+ res1d = sumBit(nib1d, nib2d, carryBit);
+ carryBit = sumCarryBit(nib1d, nib2d, carryBit);
+ }
+ digitalWrite(8, res1a);
+ digitalWrite(9, res1b);
+ digitalWrite(10, res1c);
+ digitalWrite(11, res1d);
+ digitalWrite(12, carryBit);
 }
 ```
-**Operações:**
+**Operations:**
 
---Lê o estado do pino de controle (soma).
+--Reads the status of the control pin (sum).
 
---Lê os bits dos dois números de 4 bits (nib1a a nib1d e nib2a a nib2d).
+--Reads the bits of the two 4-bit numbers (nib1a to nib1d and nib2a to nib2d).
 
---Se o pino de controle estiver ativado (soma == 1), realiza a soma bit a bit, atualizando o bit de transporte.
+--If the control pin is activated (sum == 1), performs bitwise summation, updating the carry bit.
 
---Escreve o resultado da soma nos pinos de saída (res1a a res1d e carryBit).
+--Write the result of the sum to the output pins (res1a to res1d and carryBit).

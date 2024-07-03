@@ -1,9 +1,3 @@
-//T�CNICO EM DESENVOLVIMENTO DE SISTEMAS - SENAC NH
-//Programa base para TRABALHO 2
-//PROF.: Glauber Kiss de Souza
-//DISC.: Analizar Orient. T�cnicas
-//ALUNO: Alan M. Cornely
-
 // global variables
 int soma = 13;
 int carryBit = 0;

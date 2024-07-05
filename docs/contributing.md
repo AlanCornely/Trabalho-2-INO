@@ -27,8 +27,4 @@ Do not open an issue on GitHub until you have collected positive feedback on the
 
 Ask any questions about how to use via email.
 
-* Want to contribute to Rails documentation?
-
-Please read Contributing to the Documentation.
-
 Thanks!

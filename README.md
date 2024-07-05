@@ -6,6 +6,16 @@
 ## Date: 06/13/2024
 # =====================================
 
+# index
+
+welcome to our software and here is some information to read about our code.
+
+- [overview] (https://github.com/AlanCornely/Trabalho-2-INO/blob/main/docs/overview.md)
+- [installation] (https://github.com/AlanCornely/Trabalho-2-INO/blob/main/docs/installation.md)
+- [usage] (https://github.com/AlanCornely/Trabalho-2-INO/blob/main/docs/usage.md)
+- [contributing] (https://github.com/AlanCornely/Trabalho-2-INO/blob/main/docs/contributing.md)
+- [license] (https://github.com/AlanCornely/Trabalho-2-INO/blob/main/docs/LICENSE)
+
 ## Description
 ### This Arduino code performs the sum of two 4-bit numbers and displays the result on digital output pins. The program reads two 4-bit numbers from the digital input pins, performs the bitwise sum considering the carry bit, and then writes the result and the resulting carry bit to the output pins.
 

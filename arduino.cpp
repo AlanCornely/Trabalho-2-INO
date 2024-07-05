@@ -1,28 +1,28 @@
 #include <Arduino.h>
 
 // global variables
-int soma = 13;
-int carryBit = 0;
+int soma = 13; //sum input to perform the sum
+int carryBit = 0; //carry bit when one number will go from 1 to 0
 int nib1a,nib1b,nib1c,nib1d = 0;
 int nib2a,nib2b,nib2c,nib2d = 0;
 int res1a,res1b,res1c,res1d = 0;
 
 //Pin configuration
 void setup(){
-	pinMode(0, INPUT);
-	pinMode(1, INPUT);
-	pinMode(2, INPUT);
-	pinMode(3, INPUT);
-	pinMode(4, INPUT);
-	pinMode(5, INPUT);
-	pinMode(6, INPUT);
-	pinMode(7, INPUT);
-	pinMode(8, OUTPUT);
-	pinMode(9, OUTPUT);
-	pinMode(10, OUTPUT);
-	pinMode(11, OUTPUT);
-	pinMode(12, OUTPUT);
-	pinMode(13, INPUT);
+	pinMode(0, INPUT); //input of the first number in binary
+	pinMode(1, INPUT); //input of the second number in binary
+	pinMode(2, INPUT); //input of the third number in binary
+	pinMode(3, INPUT); //input of the fourth number in binary
+	pinMode(4, INPUT); //input of the fifth number in binary
+	pinMode(5, INPUT); //input of the sixth number in binary
+	pinMode(6, INPUT); //input of the seventh number in binary
+	pinMode(7, INPUT); //input of the eighth number in binary
+	pinMode(8, OUTPUT); //output of the number after sum
+	pinMode(9, OUTPUT); //output of the number after sum
+	pinMode(10, OUTPUT); //output of the number after sum
+	pinMode(11, OUTPUT); //output of the number after sum
+	pinMode(12, OUTPUT); //output of the number after sum
+	pinMode(13, INPUT); //carry bit 
 }
 
 // Performs the bitwise sum operation between variables b1a and b2a, also considering the transport bit cBit.int somaBit(int b1a, int b2a, int cBit){
@@ -49,15 +49,15 @@ int somaCarryBit(int b1a, int b2a, int cBit){
 
 //main scope
 void loop(){
-	soma = digitalRead(13);
-	nib1a = digitalRead(0);
-	nib1b = digitalRead(1);
-	nib1c = digitalRead(2);
-	nib1d = digitalRead(3);
-	nib2a = digitalRead(4);
-	nib2b = digitalRead(5);
-	nib2c = digitalRead(6);
-	nib2d = digitalRead(7);
+	soma = digitalRead(13); 
+	nib1a = digitalRead(0); //entry number
+	nib1b = digitalRead(1); //entry number
+	nib1c = digitalRead(2); //entry number
+	nib1d = digitalRead(3); //entry number
+	nib2a = digitalRead(4); //entry number
+	nib2b = digitalRead(5); //entry number
+	nib2c = digitalRead(6); //entry number
+	nib2d = digitalRead(7); //entry number
 
 	if (soma == 1){
 		carryBit = 0;
@@ -70,9 +70,9 @@ void loop(){
 		res1d = somaBit(nib1d,nib2d,carryBit);
 		carryBit = somaCarryBit(nib1d,nib2d,carryBit);
 	}
-	digitalWrite(8,res1a);
-	digitalWrite(9,res1b);
-	digitalWrite(10,res1c);
-	digitalWrite(11,res1d);
-	digitalWrite(12,carryBit);
+	digitalWrite(8,res1a); //return of the number after the sum
+	digitalWrite(9,res1b); //return of the number after the sum
+	digitalWrite(10,res1c); //return of the number after the sum
+	digitalWrite(11,res1d); //return of the number after the sum
+	digitalWrite(12,carryBit); //carrybit
 }

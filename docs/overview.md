@@ -25,3 +25,19 @@ void setup(){
 	pinMode(13, INPUT);
 }
 ```
+After entering the numbers after pressing the number button 13 the sum function will be performed
+following the developed code
+```cpp
+	if (soma == 1){
+		carryBit = 0;
+		res1a = somaBit(nib1a,nib2a,carryBit);
+		carryBit = somaCarryBit(nib1a,nib2a,carryBit);
+		res1b = somaBit(nib1b,nib2b,carryBit);
+		carryBit = somaCarryBit(nib1b,nib2b,carryBit);
+		res1c = somaBit(nib1c,nib2c,carryBit);
+		carryBit = somaCarryBit(nib1c,nib2c,carryBit);
+		res1d = somaBit(nib1d,nib2d,carryBit);
+		carryBit = somaCarryBit(nib1d,nib2d,carryBit);
+	}
+```
+and the result of the sum will be shown on the last 4 pins.

@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 // global variables
 int soma = 13;
 int carryBit = 0;

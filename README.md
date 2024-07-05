@@ -155,3 +155,7 @@ void loop(){
 --If the control pin is activated (sum == 1), performs bitwise summation, updating the carry bit.
 
 --Write the result of the sum to the output pins (res1a to res1d and carryBit).
+
+# creators:
+
+original creator: Glauber kiss Souza
